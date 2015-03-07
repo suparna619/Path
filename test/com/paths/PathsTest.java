@@ -1,9 +1,7 @@
 package com.paths;
 
-import com.paths.Paths;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.*;
 
 
 public class PathsTest {
@@ -92,9 +90,9 @@ public class PathsTest {
 	}
 
 	@Test
-	public void hasWay_returns_false_for_path_between_Beijing_to_Singapore() {
+	public void hasWay_returns_true_for_path_between_Beijing_to_Singapore() {
 		Paths newPath = new Paths(content);
-		assertFalse(newPath.hasWay("beijing","singapore"));
+		assertTrue(newPath.hasWay("beijing","singapore"));
 	}
 
 	@Test
@@ -136,7 +134,7 @@ public class PathsTest {
 	@Test
 	public void printPath_returns_path_for_Tokyo_to_Bangalore() {
 		Paths newPath = new Paths(content);
-		assertEquals(newPath.printPath("tokyo", "bangalore"),"TOKYO -> BEIJING -> SEOL -> SINGAPORE -> BANGALORE");
+		assertEquals(newPath.printPath("tokyo", "bangalore"),"TOKYO -> BEIJING -> SEOUL -> SINGAPORE -> BANGALORE");
 	}
 
 	@Test
