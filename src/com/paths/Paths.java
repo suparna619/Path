@@ -4,34 +4,8 @@ import java.util.*;
 
 
 public class Paths {
-	static Map<String, List<String>> map = new HashMap<String, List<String>>();
+	public Map<String, List<String>> map = new HashMap<String, List<String>>();
 	List<String> sourceToDestinationPath = new ArrayList<String>();
-	
-	static{
-		List<String> bangalore = new ArrayList<String>();
-		bangalore.add("singapore");
-		List<String> singapore = new ArrayList<String>();
-		singapore.add("bangalore");
-		singapore.add("seoul");
-		singapore.add("dubai");
-		List<String> seoul = new ArrayList<String>();
-		seoul.add("singapore");
-		seoul.add("beijing");
-		List<String> beijing = new ArrayList<String>();
-		beijing.add("tokyo");
-		beijing.add("seoul");
-		List<String> dubai = new ArrayList<String>();
-		dubai.add("singapore");
-		List<String> tokyo = new ArrayList<String>();
-		tokyo.add("beijing");
-		
-		map.put("bangalore", bangalore);
-		map.put("singapore", singapore);
-		map.put("seoul", seoul);
-		map.put("beijing", beijing);
-		map.put("dubai", dubai);
-		map.put("tokyo", tokyo);
-	}
 
     public Paths(String content){
         this.map = Database.pathInDataBase(content);
@@ -53,7 +27,7 @@ public class Paths {
 
 	public boolean hasWay(String source, String destination){
 		sourceToDestinationPath.add(source);
-		return (findWay(source,destination)) ? true : false;
+		return (findWay(source,destination));
 	}
 
 	public boolean findWay(String source, String destination){
@@ -77,6 +51,6 @@ public class Paths {
 
 	public String printPath(String source, String destination){
         hasWay(source,destination);
-        return (String.join(" -> ",sourceToDestinationPath));
+        return (String.join(" -> ",sourceToDestinationPath)).toUpperCase();
     }
 }
