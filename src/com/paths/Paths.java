@@ -9,29 +9,33 @@ public class Paths {
 	
 	static{
 		List<String> bangalore = new ArrayList<String>();
-		bangalore.add("Singapore");
+		bangalore.add("singapore");
 		List<String> singapore = new ArrayList<String>();
-		singapore.add("Bangalore");
-		singapore.add("Seoul");
-		singapore.add("Dubai");
+		singapore.add("bangalore");
+		singapore.add("seoul");
+		singapore.add("dubai");
 		List<String> seoul = new ArrayList<String>();
-		seoul.add("Singapore");
-		seoul.add("Beijing");
+		seoul.add("singapore");
+		seoul.add("beijing");
 		List<String> beijing = new ArrayList<String>();
-		beijing.add("Tokyo");
-		beijing.add("Seoul");
+		beijing.add("tokyo");
+		beijing.add("seoul");
 		List<String> dubai = new ArrayList<String>();
-		dubai.add("Singapore");
+		dubai.add("singapore");
 		List<String> tokyo = new ArrayList<String>();
-		tokyo.add("Beijing");
+		tokyo.add("beijing");
 		
-		map.put("Bangalore", bangalore);
-		map.put("Singapore", singapore);
-		map.put("Seoul", seoul);
-		map.put("Beijing", beijing);
-		map.put("Dubai", dubai);
-		map.put("Tokyo", tokyo);
+		map.put("bangalore", bangalore);
+		map.put("singapore", singapore);
+		map.put("seoul", seoul);
+		map.put("beijing", beijing);
+		map.put("dubai", dubai);
+		map.put("tokyo", tokyo);
 	}
+
+    public Paths(String content){
+        this.map = Database.pathInDataBase(content);
+    }
 
 	public boolean isStationPresent(String station){
 		Set<String> sourceStations = map.keySet();
@@ -72,8 +76,7 @@ public class Paths {
 	}
 
 	public String printPath(String source, String destination){
-		Paths newPath = new Paths();
-		boolean hasWay = newPath.hasWay(source,destination);
-		return String.join(" -> ",newPath.sourceToDestinationPath);
-	}
+        hasWay(source,destination);
+        return (String.join(" -> ",sourceToDestinationPath));
+    }
 }
