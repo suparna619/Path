@@ -21,7 +21,7 @@ public class ReadFile{
             text = new String(chars);
             reader.close();
         } catch (IOException e) {
-            System.out.println("Error : "+e);
+            System.out.println("Error : "+e.getMessage());
         }
         return text;
     }

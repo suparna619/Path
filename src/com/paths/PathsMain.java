@@ -5,16 +5,24 @@ import static java.lang.System.exit;
 public class PathsMain {
 
     public static void main(String[] args) {
-        String option = args[0];
+        String optionFile = args[0];
         String file = args[1];
-        String sourceStation = args[2].toLowerCase();
-        String destinationStation = args[3].toLowerCase();
+        String optionCountry = args[2];
+        String countryFile = args[3];
+        String sourceStation = args[4].toLowerCase();
+        String destinationStation = args[5].toLowerCase();
         ReadFile fileReader = new ReadFile();
-        String content = fileReader.readFile(file);
-        Paths path = new Paths(content);
+        String pathContainer = fileReader.readFile(file);
+        String countyContainer = fileReader.readFile(countryFile);
 
-        if(!option.equals("-f")) {
-            System.out.println("Wrong Option '"+option+"'");
+        Paths path = new Paths(pathContainer,countyContainer);
+
+        if(!optionFile.equals("-f")) {
+            System.out.println("Wrong Option '"+optionFile+"'");
+            exit(0);
+        }
+        if (!optionCountry.equals("-c")) {
+            System.out.println("Wrong Option '"+optionCountry+"'");
             exit(0);
         }
         if(!path.isStationPresent(sourceStation)){
