@@ -5,10 +5,13 @@ import java.util.*;
 
 public class Paths {
 	public Map<String, List<String>> map = new HashMap<String, List<String>>();
-	List<String> sourceToDestinationPath = new ArrayList<String>();
+    public Map<String,String> getCountryName = new HashMap<String,String>();
 
-    public Paths(String content){
-        this.map = Database.pathInDataBase(content);
+	Queue<String> sourceToDestinationPath = new LinkedList<String>();
+
+    public Paths(String pathContent, String countyContent){
+        this.map = Database.pathInDataBase(pathContent);
+        this.getCountryName = Database.countryReader(countyContent);
     }
 
 	public boolean isStationPresent(String station){
@@ -50,7 +53,16 @@ public class Paths {
 	}
 
 	public String printPath(String source, String destination){
+        String fullPath = "";
         hasWay(source,destination);
-        return (String.join(" -> ",sourceToDestinationPath)).toUpperCase();
+        int length = sourceToDestinationPath.size();
+        for(int i=0;i<length;i++){
+            String cityName = sourceToDestinationPath.poll();
+            if(i==0)
+                fullPath +=""+cityName.toUpperCase()+"["+getCountryName.get(cityName)+"]";
+            else
+                fullPath +=" -> "+cityName.toUpperCase()+"["+getCountryName.get(cityName)+"]";
+        }
+        return fullPath;
     }
 }
