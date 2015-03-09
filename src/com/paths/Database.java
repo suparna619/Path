@@ -24,4 +24,16 @@ public class Database{
         return map;
     }
 
+    public static  Map<String,String> countryReader(String content){
+        Map<String,String> getCountryName = new HashMap<String,String>();
+        String[] lines = content.split("\r\n");
+        for(String line:lines){
+            if(line!=null) {
+                String path[] = line.split(",");
+                getCountryName.put(path[0], path[1]);
+            }
+        }
+        return getCountryName;
+    }
+
 }
