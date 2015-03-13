@@ -29,11 +29,10 @@ public class Database{
         String[] lines = content.split("\r\n");
         for(String line:lines){
             if(line!=null) {
-                String path[] = line.split(",");
-                getCountryName.put(path[0], path[1]);
+                String path[] = line.split("[,]");
+                getCountryName.put(path[0],path[1]);
             }
         }
         return getCountryName;
     }
-
 }
