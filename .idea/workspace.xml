@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3085acd4-bec5-41b9-91a6-c065b4f59e47" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paths/com/paths/Database.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paths/com/paths/OptionTester.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paths/com/paths/Paths.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paths/com/paths/PathsMain.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/test/Paths/com/paths/PathsTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Paths/com/paths/ReadFile.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/paths/OptionTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="10476d66-39c0-454b-ab66-797aa044081d" name="Failed commit: Default" comment="class wrote for testing option &quot;-f&quot; and &quot;-c&quot;" />
     <list id="cc9ddaa4-9185-442b-91b6-344890059452" name="Failed commit: Default (2)" comment="tester class created for checking options" />
@@ -50,8 +45,8 @@
       <file leaf-file-name="OptionTester.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/paths/OptionTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33082706" vertical-offset="0" max-vertical-offset="682">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.2756892" vertical-offset="0" max-vertical-offset="682">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,9 +130,6 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="PUSH_TAGS">
-      <GitPushTagMode />
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -617,7 +609,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426258974866</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="version-6 modified for some git issue">
+      <created>1426260882425</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1426260882425</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -702,7 +700,9 @@
     <MESSAGE value="library modified" />
     <MESSAGE value="version-6 implemented, more test required" />
     <MESSAGE value="tester class created for checking options" />
-    <option name="LAST_COMMIT_MESSAGE" value="tester class created for checking options" />
+    <MESSAGE value="version-6 modified for some git issue" />
+    <MESSAGE value="OptionTester.java added" />
+    <option name="LAST_COMMIT_MESSAGE" value="OptionTester.java added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1163,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/paths/OptionTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33082706" vertical-offset="0" max-vertical-offset="682">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.2756892" vertical-offset="0" max-vertical-offset="682">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
