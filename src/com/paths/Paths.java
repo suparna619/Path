@@ -2,12 +2,9 @@ package com.paths;
 
 import java.util.*;
 
-
 public class Paths {
 	public Map<String, List<String>> map = new HashMap<String, List<String>>();
     public Map<String,String> getCountryName = new HashMap<String,String>();
-
-	Queue<String> sourceToDestinationPath = new LinkedList<String>();
 
     public Paths(String pathContent, String countyContent){
         this.map = Database.pathInDataBase(pathContent);
@@ -28,41 +25,69 @@ public class Paths {
 		return false;
 	}
 
-	public boolean hasWay(String source, String destination){
-		sourceToDestinationPath.add(source);
-		return (findWay(source,destination));
-	}
-
-	public boolean findWay(String source, String destination){
-		if(map.get(source) == null)
-			return false;
-		if(map.get(source).contains(destination)){
-			sourceToDestinationPath.add(destination);
-			return true;
-		}
-		if(!map.get(source).contains(destination)){			
-			int size = map.get(source).size();
-			for(int i = 0; i < size; i++){
-				if(!sourceToDestinationPath.contains(map.get(source).get(i))){
-					sourceToDestinationPath.add(map.get(source).get(i));
-					return findWay(map.get(source).get(i),destination);
-				}
-			}
-		}
-		return false;
-	}
-
-	public String printPath(String source, String destination){
-        String fullPath = "";
-        hasWay(source,destination);
-        int length = sourceToDestinationPath.size();
-        for(int i=0;i<length;i++){
-            String cityName = sourceToDestinationPath.poll();
-            if(i==0)
-                fullPath +=""+cityName.toUpperCase()+"["+getCountryName.get(cityName)+"]";
-            else
-                fullPath +=" -> "+cityName.toUpperCase()+"["+getCountryName.get(cityName)+"]";
+    public boolean source_destination_checker(String source, String destination){
+        if(!isStationPresent(source)){
+            System.out.println("No city named '" + source.toUpperCase() + "' in database");
+            return false;
         }
-        return fullPath;
+        if(source.equals(destination)){
+            System.out.println("Source and Destination are equal");
+            return false;
+        }
+        if (!isStationPresent(destination)){
+            System.out.println("No city named '" + destination.toUpperCase() + "' in database");
+            return false;
+        }
+        return true;
+    }
+
+    public List<Queue<String>> getDirectPath(String source,String destination) {
+        Queue<String> path = new LinkedList<String>();
+        List<Queue<String>> AllRoots = new ArrayList<Queue<String>>();
+        getPath(path, AllRoots, source, destination);
+        return AllRoots;
+    }
+
+    public void  getPath(Queue<String>path,List<Queue<String>> AllRoots,String source,String destination){
+        path.add(source);
+        Set<String> cities = map.keySet();
+        if(isStationPresent(source) && isStationPresent(destination)){
+
+            if(source.equals(destination)){
+                AllRoots.add(new LinkedList<String>(path));
+                path.remove(source);
+                return;
+            }
+            for(String city : cities){
+                if(city.equals(source)) {
+                    List<String> lists = map.get(city);
+                    for(String list:lists){
+                        if(!path.contains(list)){
+                            getPath(path, AllRoots, list, destination);
+                        }
+                    }
+                }
+
+            }
+        }
+        path.remove(source);
+    }
+
+	public List<String> printPath(String source, String destination){
+        List<Queue<String>> AllRoots = getDirectPath(source,destination);
+        List<String> list = new ArrayList<String>();
+        for(Queue<String> singleRoots:AllRoots) {
+            String getfullpath = "";
+            int length = singleRoots.size();
+            for (int i = 0; i < length; i++) {
+                String cityName = singleRoots.poll();
+                if (i == 0)
+                    getfullpath += "" + cityName + "[" + getCountryName.get(cityName) + "]";
+                else
+                    getfullpath += " -> " + cityName + "[" + getCountryName.get(cityName) + "]";
+            }
+            list.add(getfullpath);
+        }
+        return list;
     }
 }
