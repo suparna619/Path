@@ -8,3 +8,5 @@ seoul,beijing
 beijing,seoul
 beijing,tokyo
 tokyo,beijing
+dubai,seoul
+seoul,dubai
